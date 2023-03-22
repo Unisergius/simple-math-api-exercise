@@ -13,7 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 app.get('/sum/:a/:b', (req: Request, res: Response) => {
   const { a, b } = { a: req.params.a, b: req.params.b };
   const sum = Number(a) + Number(b);
-  res.json({ message: 'Sum Operation', 'operation': 'success', a, b, sum });
+  res.json({ message: 'Sum Operation', operation: 'success', a, b, sum });
 });
 
 app.listen(port, () => {
