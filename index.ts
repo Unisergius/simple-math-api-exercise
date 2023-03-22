@@ -16,6 +16,12 @@ app.get('/sum/:a/:b', (req: Request, res: Response) => {
   res.json({ message: 'Sum Operation', operation: 'success', a, b, sum });
 });
 
+app.get('/subtract/:a/:b', (req: Request, res: Response) => {
+  const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+  const subtraction = a - b;
+  res.json({ message: 'Subtract Operation', operation: 'success', a, b, subtraction });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}`);
 });
