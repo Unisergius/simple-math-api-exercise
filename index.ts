@@ -22,6 +22,11 @@ app.get('/div/:a/:b', (req: Request, res: Response) => {
   res.json({ message: 'Div Operation', operation: 'success', a, b, c });
 });
 
+app.get('/subtract/:a/:b', (req: Request, res: Response) => {
+  const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+  const subtraction = a - b;
+  res.json({ message: 'Subtract Operation', operation: 'success', a, b, subtraction });
+});
 
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}`);
