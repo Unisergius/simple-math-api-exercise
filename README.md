@@ -22,6 +22,18 @@ Compile typescript to dist folder
 npm run build
 ```
 
+Run test
+
+```sh
+npm run test
+```
+
+Run test coverage
+
+```sh
+npm run test:coverage
+```
+
 Run our Math API
 
 ```sh
