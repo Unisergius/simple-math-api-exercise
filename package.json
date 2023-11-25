@@ -13,7 +13,11 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFilesAfterEnv": []
+    "setupFilesAfterEnv": [],
+    "testPathIgnorePatterns": [
+      "node_modules/",
+      "dist/"
+    ]
   },
   "repository": {
     "type": "git",
