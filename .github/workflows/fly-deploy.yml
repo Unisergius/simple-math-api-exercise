@@ -4,6 +4,7 @@ jobs:
   deploy:
     name: Deploy proxy
     runs-on: ubuntu-latest
+    environment: production
     steps:
       # Checkout to repo
       - uses: actions/checkout@v2
