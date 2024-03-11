@@ -1,0 +1,15 @@
+name: Deploy to Fly
+on: [push]
+jobs:
+  deploy:
+    name: Deploy proxy
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout to repo
+      - uses: actions/checkout@v2
+      # Initialize fly.io CLI
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      # Deploy to fly.io with a remote runner
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

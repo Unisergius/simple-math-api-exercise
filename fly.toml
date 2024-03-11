@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for simple-math-api-exercise on 2024-03-11T23:13:09Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'simple-math-api-exercise'
+primary_region = 'mad'
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
+
+[env]
+  PORT = 3000

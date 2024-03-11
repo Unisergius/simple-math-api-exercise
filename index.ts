@@ -17,7 +17,7 @@ using express.js
 const app: Express = express();
 
 // This is how you setup a simple GET handler
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (_req: Request, res: Response) => {
 	// With express, we can respond with JSON directly without having to
 	// `JSON.stringify()` response. You might want to do this if you're building
 	// an API
