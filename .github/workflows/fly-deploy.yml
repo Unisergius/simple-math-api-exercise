@@ -7,9 +7,16 @@ jobs:
     environment: production
     steps:
       # Checkout to repo
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       # Initialize fly.io CLI
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm install
+      - run: npm run build
+      - run: npm run test
       # Deploy to fly.io with a remote runner
       - run: flyctl deploy --remote-only
         env:
