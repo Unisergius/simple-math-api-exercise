@@ -17,7 +17,7 @@ using express.js
 const app: Express = express();
 
 // This is how you setup a simple GET handler
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (_req: Request, res: Response) => {
 	// With express, we can respond with JSON directly without having to
 	// `JSON.stringify()` response. You might want to do this if you're building
 	// an API
@@ -56,16 +56,16 @@ app.get('/div/:a/:b', (req: Request, res: Response) => {
 });
 
 // Handler for the subtraction route
-app.get('/subtract/:a/:b', (req: Request, res: Response) => {
-	const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
-	const subtraction = subtractTwoNumbers(Number(a), Number(b));
-	res.json({
-		message: 'Subtract Operation',
-		operation: 'success',
-		a,
-		b,
-		subtraction
-	});
-});
+// app.get('/subtract/:a/:b', (req: Request, res: Response) => {
+// 	const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+// 	const subtraction = subtractTwoNumbers(Number(a), Number(b));
+// 	res.json({
+// 		message: 'Subtract Operation',
+// 		operation: 'success',
+// 		a,
+// 		b,
+// 		subtraction
+// 	});
+// });
 
 export { app };
