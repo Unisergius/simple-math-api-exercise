@@ -1,10 +1,11 @@
 import { app } from '..';
+/** @format */
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
 	powerTwoNumbers,
 	multiplyTwoNumbers,
-	subtractTwoNumbers
+	subtractTwoNumbers,
 } from '../math.handler';
 
 import request from 'supertest';
@@ -25,7 +26,8 @@ describe('test math handler', (): void => {
 		// number 3 using this function will result in the number 32. This is a
 		// very crude test to test our function as it could just be always giving
 		// out the number 32!
-		let a = 29, b = 3;
+		let a = 29,
+			b = 3;
 		let result = addTwoNumbers(a, b);
 		// The expect function will return a Jest object with the result we gave it
 		// to actually test if the result we gave it is what we want, we need to use
@@ -41,6 +43,7 @@ describe('test math handler', (): void => {
 	// The following tests have been collapsed for brevety
 	test('divide two numbers', (): void => {
 		expect(divideTwoNumbers(10, 2)).toBe(5);
+		expect(divideTwoNumbers(1, 0)).toBe(NaN);
 	});
 
 	test('sub two numbers', (): void => {
