@@ -1,9 +1,11 @@
+/** @format */
+
 import express, { Express, Request, Response } from 'express';
 // Import our library
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
-	subtractTwoNumbers
+	subtractTwoNumbers,
 } from './math.handler';
 
 /*
@@ -24,7 +26,7 @@ app.get('/', (_req: Request, res: Response) => {
 	res.json({ message: 'Hello World!' });
 });
 
-// This GET route is very flexible, it will answer any request going to 
+// This GET route is very flexible, it will answer any request going to
 // `/sum/*/*` and assign the wildcards into the parameters with the key given
 app.get('/sum/:a/:b', (req: Request, res: Response) => {
 	// Extract the request parameters
@@ -38,21 +40,30 @@ app.get('/sum/:a/:b', (req: Request, res: Response) => {
 		operation: 'success',
 		a,
 		b,
-		sum
+		sum,
 	});
 });
 
 // Handler for the division route.
 app.get('/div/:a/:b', (req: Request, res: Response) => {
 	const { a, b } = { a: req.params.a, b: req.params.b };
-	const division = divideTwoNumbers(Number(a), Number(b));
-	res.json({
-		message: 'Div Operation',
-		operation: 'success',
-		a,
-		b,
-		c: division
-	});
+	if (b == '0') {
+		res.json({
+			message: 'You cannot divide by zero',
+			operation: 'failure',
+			a,
+			b,
+		});
+	} else {
+		const division = divideTwoNumbers(Number(a), Number(b));
+		res.json({
+			message: 'Div Operation',
+			operation: 'success',
+			a,
+			b,
+			c: division,
+		});
+	}
 });
 
 // Handler for the subtraction route
