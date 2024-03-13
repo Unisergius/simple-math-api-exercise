@@ -3,7 +3,8 @@ import express, { Express, Request, Response } from 'express';
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
-	subtractTwoNumbers
+	subtractTwoNumbers,
+	powerTwoNumbers
 } from './math.handler';
 
 /*
@@ -67,5 +68,18 @@ app.get('/div/:a/:b', (req: Request, res: Response) => {
 // 		subtraction
 // 	});
 // });
+
+// Handler for the exponencial route
+app.get('/power/:a/:b', (req: Request, res: Response) => {
+	const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+ 	const exponencial = powerTwoNumbers(Number(a), Number(b));
+ 	res.json({
+ 		message: 'Power Operation',
+ 		operation: 'success',
+ 		a,
+ 		b,
+ 		exponencial
+ 	});
+});
 
 export { app };

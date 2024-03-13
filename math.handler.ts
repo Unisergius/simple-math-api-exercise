@@ -10,8 +10,11 @@ const divideTwoNumbers = (a: number, b: number): number => a / b;
 
 const subtractTwoNumbers = (a: number, b: number): number => a - b;
 
+const powerTwoNumbers = (a: number, b: number): number => a ** b;
+
 export {
   addTwoNumbers,
   divideTwoNumbers,
-  subtractTwoNumbers
+  subtractTwoNumbers,
+  powerTwoNumbers
 };
