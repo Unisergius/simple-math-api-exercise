@@ -14,6 +14,41 @@ using express.js
 @see Express.js Docs: http://expressjs.com/ 
 */
 
+const ENDPOINTS = {
+	"sum": {
+		"method": "GET",
+		"params": "/:a/:b",
+		"example": {
+			"request": "/sum/6/2",
+		},
+		"description": "Adds 2 numbers"
+	},
+	"div": {
+		"method": "GET",
+		"params": "/:a/:b",
+		"example": {
+			"request": "/div/6/2",
+		},
+		"description": "Divides a by b"
+	},
+	"subtract": {
+		"method": "GET",
+		"params": "/:a/:b",
+		"example": {
+			"request": "/subtract/6/2",
+		},
+		"description": "Subtracts b from a"
+	},
+	"multiply": {
+		"method": "GET",
+		"params": "/:a/:b",
+		"example": {
+			"request": "/multiply/6/2",
+		},
+		"description": "Multiply 2 numbers"
+	},
+}
+
 // Create the Express application
 const app: Express = express();
 
@@ -22,7 +57,10 @@ app.get('/', (_req: Request, res: Response) => {
 	// With express, we can respond with JSON directly without having to
 	// `JSON.stringify()` response. You might want to do this if you're building
 	// an API
-	res.json({ message: 'Hello World!' });
+	res.json({
+		message: 'Hello World!',
+		endpoints: ENDPOINTS
+	});
 });
 
 // This GET route is very flexible, it will answer any request going to 
