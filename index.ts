@@ -58,17 +58,17 @@ app.get('/div/:a/:b', (req: Request, res: Response) => {
 });
 
 // Handler for the subtraction route
-// app.get('/subtract/:a/:b', (req: Request, res: Response) => {
-// 	const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
-// 	const subtraction = subtractTwoNumbers(Number(a), Number(b));
-// 	res.json({
-// 		message: 'Subtract Operation',
-// 		operation: 'success',
-// 		a,
-// 		b,
-// 		subtraction
-// 	});
-// });
+app.get('/subtract/:a/:b', (req: Request, res: Response) => {
+const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+const subtraction = subtractTwoNumbers(Number(a), Number(b));
+res.json({
+message: 'Subtract Operation',
+operation: 'success',
+a,
+b,
+subtraction
+});
+});
 
 // Handler for the exponencial route
 app.get('/power/:a/:b', (req: Request, res: Response) => {
