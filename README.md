@@ -6,7 +6,7 @@ Here's a skeleton for us to clone in the 6th fCC meetup in Ikea
 
 ## Development
 
-This project requires Node.JS installed, a javascript runtime that runs code
+This project requires Node.JS installed, a JavaScript runtime that runs code
 inside a v8 engine without a browser. See more on how to install it at
 [nodejs.org](https://nodejs.org/en).
 
