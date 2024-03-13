@@ -14,4 +14,14 @@ const divideTwoNumbers = (a: number, b: number): number => {
 
 const subtractTwoNumbers = (a: number, b: number): number => a - b;
 
-export { addTwoNumbers, divideTwoNumbers, subtractTwoNumbers };
+const powerTwoNumbers = (a: number, b: number): number => a ** b;
+
+const multiplyTwoNumbers = (a: number, b: number): number => a * b;
+
+export {
+	addTwoNumbers,
+	divideTwoNumbers,
+	powerTwoNumbers,
+	multiplyTwoNumbers,
+	subtractTwoNumbers,
+};

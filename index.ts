@@ -6,6 +6,8 @@ import {
 	addTwoNumbers,
 	divideTwoNumbers,
 	subtractTwoNumbers,
+	powerTwoNumbers,
+	multiplyTwoNumbers,
 } from './math.handler';
 
 /*
@@ -78,5 +80,30 @@ app.get('/div/:a/:b', (req: Request, res: Response) => {
 // 		subtraction
 // 	});
 // });
+
+// Handler for the exponencial route
+app.get('/power/:a/:b', (req: Request, res: Response) => {
+	const { a, b } = { a: Number(req.params.a), b: Number(req.params.b) };
+	const exponencial = powerTwoNumbers(Number(a), Number(b));
+	res.json({
+		message: 'Power Operation',
+		operation: 'success',
+		a,
+		b,
+		exponencial,
+	});
+});
+// Handler for the multiply endpoint
+app.get('/multiply/:a/:b', (req: Request, res: Response) => {
+	const { a, b } = { a: req.params.a, b: req.params.b };
+	const multiplication = multiplyTwoNumbers(Number(a), Number(b));
+	res.json({
+		message: 'Multiply Operation',
+		operation: 'success',
+		a,
+		b,
+		c: multiplication,
+	});
+});
 
 export { app };
