@@ -15,6 +15,6 @@ const multiplyTwoNumbers = (a: number, b: number): number => a * b;
 export {
   addTwoNumbers,
   divideTwoNumbers,
-  subtractTwoNumbers,
-  multiplyTwoNumbers
+  multiplyTwoNumbers,
+  subtractTwoNumbers
 };

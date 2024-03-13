@@ -3,8 +3,8 @@ import express, { Express, Request, Response } from 'express';
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
-	subtractTwoNumbers,
-	multiplyTwoNumbers
+	multiplyTwoNumbers,
+	subtractTwoNumbers
 } from './math.handler';
 
 /*
