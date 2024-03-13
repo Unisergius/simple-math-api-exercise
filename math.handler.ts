@@ -12,9 +12,12 @@ const subtractTwoNumbers = (a: number, b: number): number => a - b;
 
 const powerTwoNumbers = (a: number, b: number): number => a ** b;
 
+const multiplyTwoNumbers = (a: number, b: number): number => a * b;
+
 export {
   addTwoNumbers,
   divideTwoNumbers,
-  subtractTwoNumbers,
-  powerTwoNumbers
+  powerTwoNumbers,
+  multiplyTwoNumbers,
+  subtractTwoNumbers
 };

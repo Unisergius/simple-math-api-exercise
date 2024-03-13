@@ -3,8 +3,9 @@ import express, { Express, Request, Response } from 'express';
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
-	subtractTwoNumbers,
-	powerTwoNumbers
+	powerTwoNumbers,
+	multiplyTwoNumbers,
+	subtractTwoNumbers
 } from './math.handler';
 
 /*
@@ -80,6 +81,18 @@ app.get('/power/:a/:b', (req: Request, res: Response) => {
  		b,
  		exponencial
  	});
+});
+// Handler for the multiply endpoint
+app.get('/multiply/:a/:b', (req: Request, res: Response) => {
+	const { a, b } = { a: req.params.a, b: req.params.b };
+	const multiplication = multiplyTwoNumbers(Number(a), Number(b));
+	res.json({
+		message: 'Multiply Operation',
+		operation: 'success',
+		a,
+		b,
+		c: multiplication
+	});
 });
 
 export { app };

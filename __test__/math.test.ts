@@ -1,8 +1,9 @@
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
-	subtractTwoNumbers,
-	powerTwoNumbers
+	powerTwoNumbers,
+	multiplyTwoNumbers,
+	subtractTwoNumbers
 } from '../math.handler';
 
 /*
@@ -44,5 +45,9 @@ describe('test math handler', (): void => {
 	});
 	test('power two numbers', (): void => {
 		expect(powerTwoNumbers(10, 25)).toBe(10000000000000000000000000);
+	});
+
+	test('multiply two numbers', (): void => {
+		expect(multiplyTwoNumbers(2, 3)).toBe(6);
 	});
 });
