@@ -1,5 +1,5 @@
+import { app } from '..';
 /** @format */
-
 import {
 	addTwoNumbers,
 	divideTwoNumbers,
@@ -7,6 +7,8 @@ import {
 	multiplyTwoNumbers,
 	subtractTwoNumbers,
 } from '../math.handler';
+
+import request from 'supertest';
 
 /*
 This file includes a battery of test for the math library we created. Using
@@ -46,6 +48,21 @@ describe('test math handler', (): void => {
 
 	test('sub two numbers', (): void => {
 		expect(subtractTwoNumbers(5, 3)).toBe(2);
+	});
+	test('test sum json response normalization', async(): Promise<void> => {
+		const expected = {"message":"Sum Operation","operation":"success","a":"1","b":"1","sum":2}
+		const resSum = await request(app).get("/sum/1/1")
+		expect(resSum.body).toEqual(expected)
+	});
+	test('test subtract json response normalization', async(): Promise<void> => {
+		const expected = {"message":"Subtract Operation","operation":"success","a":"5","b":"5","c":0}
+		const resDiv = await request(app).get("/subtract/5/5")
+		expect(resDiv.body).toEqual(expected)
+	});
+	test('test division json response normalization', async(): Promise<void> => {
+		const expected = {"message":"Div Operation","operation":"success","a":"5","b":"5","c":1}
+		const resDiv = await request(app).get("/div/5/5")
+		expect(resDiv.body).toEqual(expected)
 	});
 	test('power two numbers', (): void => {
 		expect(powerTwoNumbers(10, 25)).toBe(10000000000000000000000000);
